@@ -11,6 +11,16 @@ body {
   margin:auto;
 }
 
+.comic {
+	display:block;
+	width:200px;
+	float:left;
+}
+
+.comic img{
+	width:100%;
+}
+
 .clear {
     clear: both;
 }

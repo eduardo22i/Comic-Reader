@@ -1,13 +1,16 @@
-var actComic = 1;
+var actComic  = 1;
 
 var pages = 0;
 
+function getNumberOfComics()  {
+	return 1;
+}
+
 function getPages () {
-	
 	switch (actComic) {
 		case 1:
 			pages = 3;
-			return 	3;
+			break;
 	}
 		
 }
