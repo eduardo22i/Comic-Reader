@@ -7,7 +7,7 @@ function init() {
 	
 	
 	for (var i = 1; i <= getNumberOfComics();i ++) {
-		pag.innerHTML = pag.innerHTML+ '<a href="page.html?comicId='+i+'" class="comic"><img src="images/comic'+i+'/portada.jpg" border="0" /></a>'; 	
+		pag.innerHTML = pag.innerHTML+ '<a href="pages.html?comicId='+i+'" class="comic"><img src="images/comic'+i+'/portada.jpg" border="0" /></a>'; 	
 	}
 	
 	pag.innerHTML = pag.innerHTML+ '<div class="clear"></div>';

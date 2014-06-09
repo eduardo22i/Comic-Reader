@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Page</title>
+<title>Comic</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
   <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8" type="text/css" >
@@ -15,16 +15,17 @@
 <body>
 
 <!-- InstanceBeginEditable name="content" -->
-  <img src="images/comic1/Portada.jpg" usemap="#pagMap" id="pag" border="0" />
- 
-  <map name="pagMap" id="pagMap">
-  </map>
   
-  <a href="javascript:cambiar()" >cambiar </a>
+ 
+  <div id="pagesHolder">
+  		<a href="javascript:cambiar()" ><img src="images/comic1/Portada.jpg" id="pag" border="0" /></a>
+  		<div class="clear"></div>
+	</div>
+  
   
   <audio id="audioPlayer" src="sounds/comic1/cuadro 2.mp3" ></audio>
   
-  <script> init(); actPg--; cambiar();</script>
+  <script> init(); 	getAllPagesView(); </script>
   
 <!-- InstanceEndEditable -->
 

@@ -3,6 +3,7 @@
 body {
   margin:0px;
   padding:0px;
+  background:#EAEAF0;
 }
 
 #pag {
@@ -11,15 +12,48 @@ body {
   margin:auto;
 }
 
-.comic {
+#comicsHolder {
+	width:70%;
+	max-width:1200px;
+	margin:auto;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+#comicsHolder .comic {
 	display:block;
 	width:200px;
 	float:left;
+	margin-left:20px;
 }
 
-.comic img{
+#comicsHolder .comic img{
 	width:100%;
 }
+
+
+/*PAGes*/
+
+
+#pagesHolder {
+	width:70%;
+	max-width:1200px;
+	margin:auto;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+#pagesHolder .pages {
+	display:block;
+	width:200px;
+	float:left;
+	margin-left:20px;
+}
+
+#pagesHolder .pages img {
+	width:100%;
+}
+
 
 .clear {
     clear: both;
