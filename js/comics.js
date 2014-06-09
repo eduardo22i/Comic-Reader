@@ -12,11 +12,11 @@ function getPages () {
 			pages = 3;
 			break;
 	}
-		
+
 }
 
 function getPagesMaps (page, actComic) {
-	
+
 	switch (actComic) {
 		case 1:
 			switch (page) {
@@ -29,9 +29,12 @@ function getPagesMaps (page, actComic) {
 			case 3:
 			return '<area shape="rect" coords="52,35,628,435" href="javascript:playSound(11)">    <area shape="rect" coords="643,31,965,438" href="javascript:playSound(12)">    <area shape="rect" coords="44,456,496,766" href="javascript:playSound(13)">    <area shape="rect" coords="514,458,963,764" href="javascript:playSound(14)">    <area shape="rect" coords="46,795,385,1242" href="javascript:playSound(15)">    <area shape="rect" coords="415,795,945,952" href="javascript:playSound(16)">    <area shape="rect" coords="415,977,946,1241" href="javascript:playSound(17)">';
 			break;
+			default:
+				return "";
+			break;
 		break;
 	}
 	}
-	
-		
+
+
 }
