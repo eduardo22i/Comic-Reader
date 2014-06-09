@@ -1,0 +1,16 @@
+﻿/* CSS Reset */
+
+body {
+  margin:0px;
+  padding:0px;
+}
+
+#pag {
+  width:1200px;
+  display:block;
+  margin:auto;
+}
+
+.clear {
+    clear: both;
+}
