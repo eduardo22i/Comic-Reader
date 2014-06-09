@@ -39,7 +39,12 @@ function cambiar() {
 	var pagArea = document.getElementById("pagMap");
 	pagArea.innerHTML = getPagesMaps ( (1+ (actPg%pages)),  actComic );
 	
+	
+	var stateObj = { foo: "bar" };
+	history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" + (1+ (actPg%pages)) );
+	
 	actPg++;
+	
 }
 
 function playSound(x) {
