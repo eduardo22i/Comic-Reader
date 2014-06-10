@@ -1,22 +1,45 @@
+var actual_JSON ;
+
 var actComic  = 1;
 
 var pages = 0;
 
+
 function getNumberOfComics()  {
-	return 1;
+	return actual_JSON.comics.length;
+	//return 1;
 }
 
 function getPages () {
+	//loadJSON();
+
+	if (actual_JSON) {
+		pages =  actual_JSON.comics[0].comic[actComic-1].pages.length;
+		return pages;
+	} else {
+		return 0;
+	}
+	//pages = actual_JSON.comics.comic[actComic-1].pages.length;
+
+	/*
 	switch (actComic) {
 		case 1:
 			pages = 3;
 			break;
 	}
-
+	*/
 }
 
-function getPagesMaps (page, actComic) {
+function getPagesMaps (page) {
 
+	var ret = "";
+	if (actual_JSON) {
+		ret = actual_JSON.comics[0].comic[0].pages[page-1].map;
+	}
+	return ret;
+
+
+	/*
 	switch (actComic) {
 		case 1:
 			switch (page) {
@@ -35,6 +58,69 @@ function getPagesMaps (page, actComic) {
 		break;
 	}
 	}
-
+	*/
 
 }
+
+
+function getPageSrc (page) {
+
+	var ret = "";
+	if (actual_JSON) {
+		ret = actual_JSON.comics[0].comic[0].pages[page-1].pagesrc;
+	}
+	return ret;
+
+}
+
+
+function getURLParameter(name) {
+	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
+
+function loadJSON() {
+
+	var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			//document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+
+			actual_JSON =  JSON.parse(xmlhttp.responseText);
+
+
+
+
+
+			actComic = parseInt (getURLParameter('comicId') );
+			actPg = parseInt (getURLParameter('pageId') );
+
+			if (actComic && actPg) {
+				init();
+				getPages();
+				//getAllPagesView();
+
+				actPg--;
+				cambiar();
+			} else if (actComic) {
+
+				init();
+				getPages();
+				getAllPagesView();
+			} else {
+				init();
+			}
+
+		}
+	}
+	xmlhttp.open("GET","json/comics.json",true);
+	xmlhttp.send();
+}
+
+
+loadJSON();

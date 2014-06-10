@@ -1,26 +1,29 @@
 var actPg = 0;
 
 function init() {
+	/*
 	actComic = parseInt (getURLParameter('comicId') );
 	actPg = parseInt (getURLParameter('pageId') );
 
+
+
 	getPages();
 	getPagesMaps(actComic);
-
-
+	*/
 }
 
-function getURLParameter(name) {
-  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
-}
 
 
 function getAllPagesView() {
 
 	var pag = document.getElementById("pagesHolder");
 
-	for (var i = 0; i <= pages ;i ++) {
-		pag.innerHTML = pag.innerHTML+ '<a href="page.html?comicId='+actComic+'&pageId='+ i + '" class="pages"><img src="images/comic'+actComic+'/pag '+i+'.jpg" border="0" /></a>';
+	pag.innerHTML = "";
+	for (var i = 1; i <= getPages(); i ++) {
+		pag.innerHTML = pag.innerHTML+ '<a href="page.html?comicId='+actComic+'&pageId='+ i + '" class="pages"><img src="images/'+getPageSrc(i)+'" border="0" /></a>';
+		if (i==4) {
+			pag.innerHTML = pag.innerHTML+ '<div class="clear"></div>';
+		}
 	}
 
 	pag.innerHTML = pag.innerHTML+ '<div class="clear"></div>';
@@ -30,18 +33,21 @@ function getAllPagesView() {
 
 function cambiar() {
 
+	actPg++;
 
 	var pag = document.getElementById("pag");
-	pag.src = "images/comic"+actComic+"/pag "+ (1+ (actPg%pages))  +".jpg";
+	pag.src = "images/"+getPageSrc(   (actPg %pages) );
+
+
 
 	var pagArea = document.getElementById("pagMap");
-	pagArea.innerHTML = getPagesMaps ( (1+ (actPg%pages)),  actComic );
+	pagArea.innerHTML = getPagesMaps (  (actPg%pages) ,  actComic );
 
 
 	var stateObj = { foo: "bar" };
-	history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" + (1+ (actPg%pages)) );
+	history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" +  (actPg%pages)  );
 
-	actPg++;
+
 
 }
 
