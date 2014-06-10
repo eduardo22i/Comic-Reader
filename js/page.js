@@ -26,13 +26,35 @@ function getAllPagesView() {
 	pag.innerHTML = pag.innerHTML+ '<div class="clear"></div>';
 }
 
+function thisPage()
 
+{
+
+	var radios = document.getElementsByName("controls");
+
+	for(var j = 0; j < radios.length; j++)
+
+	{
+
+			if((actPg%4) == radios[j].value)
+
+			{
+
+				radios[j].checked = true;
+
+				break;
+
+			}
+
+  }
+
+}
 
 function cambiar() {
 
 
-	var pag = document.getElementById("pag");
-	pag.src = "images/comic"+actComic+"/pag "+ (1+ (actPg%pages))  +".jpg";
+	//var pag = document.getElementById("pag");
+	//pag.src = "images/comic"+actComic+"/pag "+ (1+ (actPg%pages))  +".jpg";
 
 	var pagArea = document.getElementById("pagMap");
 	pagArea.innerHTML = getPagesMaps ( (1+ (actPg%pages)),  actComic );

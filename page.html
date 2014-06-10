@@ -7,6 +7,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
   <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8" type="text/css" >
+  <link href="estilos.css" rel="stylesheet" type="text/css"/>
   <script charset="utf-8" src="js/comics.js"></script>
   <script charset="utf-8" src="js/page.js"></script>
 <!-- InstanceEndEditable -->
@@ -15,16 +16,42 @@
 <body>
 
 <!-- InstanceBeginEditable name="content" -->
-  <img src="images/comic1/Portada.jpg" usemap="#pagMap" id="pag" border="0" />
+
+  <div id="slideshow-wrap">
+    <input type="radio" id="button-1" name="controls" value="0" checked="checked"/>
+    <input type="radio" id="button-2" name="controls" value="1"/>
+    <input type="radio" id="button-3" name="controls" value="2"/>
+    <input type="radio" id="button-4" name="controls" value="3"/>
+    <label for="button-1" class="arrows" id="arrow-1" onclick="cambiar();">></label>
+    <label for="button-2" class="arrows" id="arrow-2" onclick="cambiar();">></label>
+    <label for="button-3" class="arrows" id="arrow-3" onclick="cambiar();">></label>
+    <label for="button-4" class="arrows" id="arrow-4" onclick="cambiar();">></label>
+    <div id="slideshow-inner">
+        <ul class="movimiento">
+            <li id="slide1">
+                <img src="images/comic1/pag 0.jpg" usemap="#pagMap" id="pag" />
+            </li>
+            <li id="slide2">
+                <img src="images/comic1/pag 1.jpg" usemap="#pagMap"  />
+            </li>
+            <li id="slide3">
+                <img src="images/comic1/pag 2.jpg" usemap="#pagMap"  />
+            </li>
+            <li id="slide4">
+                <img src="images/comic1/pag 3.jpg" usemap="#pagMap"  />
+            </li>
+        </ul>
+    </div>
+  </div>
+
+  <!--<img src="images/comic1/Portada.jpg" usemap="#pagMap" id="pag" border="0" />-->
 
   <map name="pagMap" id="pagMap"></map>
-
-  <a href="javascript:cambiar()" >cambiar </a>
 
   <audio id="audioPlayer" src="sounds/comic1/cuadro 2.mp3" ></audio>
   <audio id="audioPlayerLoop" src="sounds/comic1/loop comic.mp3" loop autoplay ></audio>
 
-  <script> init(); actPg--; cambiar();</script>
+  <script> init(); thisPage(); actPg--; cambiar();</script>
 
 <!-- InstanceEndEditable -->
 
