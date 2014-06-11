@@ -25,7 +25,7 @@
   -moz-transition: left .8s cubic-bezier(0.77, 0, 0.175, 1);
   -o-transition: left .8s cubic-bezier(0.77, 0, 0.175, 1);
   transition: left .8s cubic-bezier(0.77, 0, 0.175, 1);
-
+  list-style:none;
 }
 
 .movimiento>li {
@@ -75,8 +75,9 @@ input[type=radio]#button-4:checked~.arrows#arrow-5
 /*Avance*/
 {
 
-    position:absolute;top:100px;
-    right: -55px;
+    position:absolute;
+	top:250px;
+    right: -80px;
     display: block;
 }
 /*

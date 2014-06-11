@@ -57,6 +57,16 @@ body {
 }
 
 
+.menuTop {
+	
+	display:block;
+	position:absolute;
+	width:70px;
+	height:70px;
+	top:10px;
+	left:10px;	
+}
+
 .clear {
     clear: both;
 }

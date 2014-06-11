@@ -93,9 +93,10 @@ function loadJSON() {
 				
 				var pagArea = document.getElementById("pagMap");
 				pagArea.innerHTML = getPagesMaps (  (actPg) ,  actComic );
-
-
-
+				
+				
+				var menuBtn = document.getElementById("menuBtn");
+				menuBtn.href = "pages.html?comicId="+ actComic;
 
 				//actPg--;
 				//cambiar();
