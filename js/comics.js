@@ -104,6 +104,10 @@ function loadJSON() {
 				init();
 				getPages();
 				//getAllPagesView();
+				getAllPagesFullView();
+
+				var pag = document.getElementById("pag");
+				pag.src = "images/"+ getPageSrc( (actPg%pages)) ;
 
 				actPg--;
 				cambiar();
