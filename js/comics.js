@@ -85,12 +85,17 @@ function loadJSON() {
 				//getAllPagesView();
 				getAllPagesFullView();
 
-				var pag = document.getElementById("pag"+actPg);
-				pag.src = "images/"+ getPageSrc( (actPg%pages)) ;
+				//var pag = document.getElementById("pag"+actPg);
+				//pag.src = "images/"+ getPageSrc( (actPg%pages)) ;
 
 
+				thisPage();
+				
 				var pagArea = document.getElementById("pagMap");
 				pagArea.innerHTML = getPagesMaps (  (actPg) ,  actComic );
+
+
+
 
 				//actPg--;
 				//cambiar();

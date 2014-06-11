@@ -52,7 +52,7 @@ function thisPage()
 
 	{
 
-			if((actPg%4) == radios[j].value)
+			if((actPg-1) == radios[j].value)
 
 			{
 
@@ -70,10 +70,6 @@ function cambiar() {
 
 	actPg++;
 
-
-	//var pag = document.getElementById("pag");
-	//pag.src = "images/comic"+actComic+"/pag "+ (1+ (actPg%pages))  +".jpg";
-
 	var pagArea = document.getElementById("pagMap");
 	pagArea.innerHTML = getPagesMaps (  (actPg) ,  actComic );
 
@@ -82,36 +78,25 @@ function cambiar() {
 	history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" +  (actPg)  );
 
 
-
 }
 
 
 window.onload = function () {
+	if (typeof history.pushState === "function")   {
+		//var stateObj = { foo: "bar" };
+		//history.pushState(stateObj, null, null);
+		window.onpopstate = function () {
+			actPg =  parseInt (getURLParameter('pageId') ) ;
 
-    if (typeof history.pushState === "function")   {
-			var stateObj = { foo: "bar" };
-        //history.pushState(stateObj, null, null);
-        window.onpopstate = function () {
-					actPg--;
+			//actPg--;
 
-					//cambiar();
-					var pag = document.getElementById("pag");
-					pag.src = "images/"+ getPageSrc( (actPg)) ;
+			thisPage();
 
-					alert(actPg);
-					/*
+			var pagArea = document.getElementById("pagMap");
+			pagArea.innerHTML = getPagesMaps (  (actPg) ,  actComic );
 
-					//history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" +  (actPg)  );
-
-            // This works in Chrome and FireFox but not in IE
-
-
-					*/
-
-        };
-    }
-
-
+		};
+	}
 }
 
 
