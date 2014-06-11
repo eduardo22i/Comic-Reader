@@ -36,7 +36,7 @@ function getAllPagesFullView() {
 
 	pag.innerHTML = "";
 	for (var i = 1; i <= getPages(); i ++) {
-		pag.innerHTML = pag.innerHTML+ '<li id="slide'+i+'">	<img src="images/'+getPageSrc(i)+'" usemap="#pagMap" id="pag" />	</li>';
+		pag.innerHTML = pag.innerHTML+ '<li id="slide'+i+'">	<img src="images/'+getPageSrc(i)+'" usemap="#pagMap" id="pag'+i+'" />	</li>';
 
 	}
 
@@ -75,29 +75,45 @@ function cambiar() {
 	//pag.src = "images/comic"+actComic+"/pag "+ (1+ (actPg%pages))  +".jpg";
 
 	var pagArea = document.getElementById("pagMap");
-	pagArea.innerHTML = getPagesMaps (  (actPg%pages) ,  actComic );
+	pagArea.innerHTML = getPagesMaps (  (actPg) ,  actComic );
 
 
-	//var stateObj = { foo: "bar" };
-	//history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" +  (actPg%pages)  );
+	var stateObj = { foo: "bar" };
+	history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" +  (actPg)  );
 
 
 
 }
+
 
 window.onload = function () {
-    if (typeof history.pushState === "function")
-    {
+
+    if (typeof history.pushState === "function")   {
 			var stateObj = { foo: "bar" };
-        history.pushState(stateObj, null, null);
-        window.onpopstate = function ()
-        {
-            history.pushState(stateObj, null, null);
-            // alert('back button pressed');
+        //history.pushState(stateObj, null, null);
+        window.onpopstate = function () {
+					actPg--;
+
+					//cambiar();
+					var pag = document.getElementById("pag");
+					pag.src = "images/"+ getPageSrc( (actPg)) ;
+
+					alert(actPg);
+					/*
+
+					//history.pushState(stateObj, "Page", "page.html?comicId=" + actComic +"&pageId=" +  (actPg)  );
+
             // This works in Chrome and FireFox but not in IE
+
+
+					*/
+
         };
     }
+
+
 }
+
 
 function playSound(x) {
 	var pagaudioPlayer= document.getElementById("audioPlayer");
